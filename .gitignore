@@ -1,0 +1,26 @@
+# --- Java / Spring Boot ---
+target/
+*.class
+*.jar
+*.war
+.m2/
+
+# --- Node / React ---
+node_modules/
+build/
+dist/
+.npm
+
+# --- IDE & Editor (VS Code, Eclipse) ---
+.idea/
+*.iml
+.vscode/
+*.swp
+
+# --- Ambiente e Credenziali ---
+.env
+application-local.properties
+
+# --- OS ---
+.DS_Store
+Thumbs.db
