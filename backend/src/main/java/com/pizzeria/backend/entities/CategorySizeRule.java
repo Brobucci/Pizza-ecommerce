@@ -34,11 +34,11 @@ public class CategorySizeRule {
 	private Category category;
 	
 	@Enumerated(EnumType.STRING)
-	@Column(nullable = false, length = 10)
+	@Column(nullable = false, length = 25)
 	private Size size; 
 	
 	@Enumerated(EnumType.STRING)
-    @Column(name = "adjustment_type", nullable = false, length = 10)
+    @Column(name = "adjustment_type", nullable = false, length = 25)
     private AdjustmentType adjustmentType;
 	
 	@Column(nullable = false, precision = 10, scale = 2)
