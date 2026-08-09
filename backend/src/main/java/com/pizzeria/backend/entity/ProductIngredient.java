@@ -1,4 +1,4 @@
-package com.pizzeria.backend.entities;
+package com.pizzeria.backend.entity;
 
 import jakarta.persistence.*;
 
