@@ -1,6 +1,9 @@
 package com.pizzeria.backend.entity;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
+
+import com.pizzeria.backend.entity.AdjustmentType;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -63,4 +66,13 @@ public class CategorySizeRule {
     public void setSize(Size size) { this.size = size; }
     public void setAdjustmentType(AdjustmentType adjustmentType) { this.adjustmentType = adjustmentType; }
     public void setValue(BigDecimal value) { this.value = value; }
+    
+    public BigDecimal apply(BigDecimal basePrice) {
+    	BigDecimal result = switch(adjustmentType) {
+    	case DELTA -> basePrice.add(value);
+    	case MULTIPLIER -> basePrice.multiply(value);
+    	};
+    	return result.setScale(2, RoundingMode.HALF_UP);
+    }
+    
 }

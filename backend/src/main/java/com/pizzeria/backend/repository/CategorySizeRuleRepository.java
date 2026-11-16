@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CategorySizeRuleRepository extends JpaRepository<CategorySizeRule, Long>{
 	
-	Optional<CategorySizeRule> findByCategorySizeRuleIdAndSize(Long id, Size size);
+	Optional<CategorySizeRule> findByCategoryIdAndSize(Long id, Size size);
 	List<CategorySizeRule> findByCategoryId(Long categoryId);
+	boolean existsByCategoryIdAndSize(Long categoryId, Size size);
 }
