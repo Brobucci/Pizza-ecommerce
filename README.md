@@ -55,5 +55,11 @@ Il database è stato progettato per supportare sia il normale flusso e-commerce 
 * MySQL Server 8.0+
 
 ### Setup Database
-1. Crea il database locale ed esegui lo script DDL contenuto in `schema.sql`.
-2. Configura le credenziali di accesso nel file `src/main/resources/application.properties`.
+1. Crea uno schema vuoto e un utente dedicato (come root, ad esempio da MySQL Workbench):
+   ```sql
+   CREATE SCHEMA pizzadb;
+   CREATE USER 'pizzeria_app'@'localhost' IDENTIFIED BY 'una_password';
+   GRANT ALL PRIVILEGES ON pizzadb.* TO 'pizzeria_app'@'localhost';
+   ```
+2. Copia `backend/.env.example` in `backend/.env` e inserisci credenziali e chiave JWT.
+3. Avvia l'applicazione: Flyway crea le tabelle applicando le migrazioni in `src/main/resources/db/migration`.
